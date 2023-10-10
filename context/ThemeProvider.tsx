@@ -15,17 +15,16 @@ export function ThemeProvider({ children }: {
     const [mode, setMode] = useState('')
     const handleThemeChange = () => {
         if (mode === 'dark') {
-            setMode('light');
+            // setMode('light');
             document.documentElement.classList.add('light');
         } else {
-            setMode('dark');
+           // setMode('dark');
             document.documentElement.classList.add('dark');
         }
     }
-
-
+    
+    handleThemeChange();
     useEffect(() => {
-        handleThemeChange();
     }, [mode])
 
     return (
