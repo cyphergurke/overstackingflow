@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex">
         <LeftSidebar />
         <section
-          className="pb-6pt-36 flex min-h-screen 
+          className="pb-6 pt-36 flex min-h-screen 
                         flex-1 flex-col px-6 max-md:pb-14 sm:px-14"
         >
           <div className="mx-auto w-full max-w-5xl">{children}</div>
