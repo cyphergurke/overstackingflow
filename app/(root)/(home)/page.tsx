@@ -20,8 +20,8 @@ const questions = [{
     name: "CodeNinja42",
     picture: "https://placekitten.com/100/100", // Just for fun, a kitten picture!
   },
-  upvotes: 42,
-  views: 137,
+  upvotes: 1231231,
+  views: 1372,
   answers: [
     { user: "user1", text: "Just practice, practice, practice!" },
     { user: "user2", text: "Read the docs like your favorite novel." },
