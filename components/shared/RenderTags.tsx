@@ -3,10 +3,10 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 
 interface TagProps {
-  _id: number;
+  _id: string;
   name: string;
-  totalQuestions: number;
-  showCount: boolean;
+  totalQuestions?: number;
+  showCount?: boolean;
 }
 
 const RenderTags = ({ _id, name, totalQuestions, showCount }: TagProps) => {
@@ -14,11 +14,11 @@ const RenderTags = ({ _id, name, totalQuestions, showCount }: TagProps) => {
     <Link
       href={`/tags/${_id}`}
       key={_id}
-      className="flex justify-between gap-2"
+      className="flex justify-between gap-2 px-2"
     >
       <Badge
         className="subtle-medium bg-light800_dark300
-            text-light400_light500 rounded-md border-none px-4 py-2 uppercase"
+            text-light400_light500  rounded-md border-none px-4 py-2 uppercase"
       >
         {name}
       </Badge>

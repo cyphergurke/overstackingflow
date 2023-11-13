@@ -1,16 +1,40 @@
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/shared/Filter";
+import NoResult from "@/components/shared/NoResult";
+import QuestionCard from "@/components/shared/cards/QuestionCard";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 import React from "react";
 
+const questions = [{
+  _id: "123abc",
+  title: "How to Master React in 7 Days",
+  tags: [
+    { _id: "tag1", name: "React" },
+    { _id: "tag2", name: "Web Development" },
+  ],
+  author: {
+    _id: "author123",
+    name: "CodeNinja42",
+    picture: "https://placekitten.com/100/100", // Just for fun, a kitten picture!
+  },
+  upvotes: 42,
+  views: 137,
+  answers: [
+    { user: "user1", text: "Just practice, practice, practice!" },
+    { user: "user2", text: "Read the docs like your favorite novel." },
+  ],
+  createdAt: new Date("2023-11-08T12:34:56Z"),
+}];
+
+
 const Home = () => {
 
   return (
     <>
-      <div className="flex w-full flex-col-reverse justify-between gap-6 sm:flex-row sm:item-center">
+      <div className="flex w-full flex-col-reverse justify-between gap-6 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900 ">
           All Questions
         </h1>
@@ -35,6 +59,28 @@ const Home = () => {
         />
       </div>
         <HomeFilters />
+        <div className="mt-10 flex w-full flex-col gap-6">
+          {questions.length > 0
+          ? questions.map((question) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              views={question.views}
+              answers={question.answers}
+              createdAt={question.createdAt}
+            />
+            )) : (
+            <NoResult
+                title="There`s no question to show"
+                description="Some description"
+                link="/"
+                linkTitle="Ask a Question"
+          />)}
+        </div>
     </>
   );
 };
