@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import RenderTags from "../shared/RenderTags";
 import { HomePageFilters } from "@/constants/filters";
 import { Button } from "../ui/button";
 

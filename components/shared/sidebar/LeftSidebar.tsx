@@ -7,13 +7,10 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
-  SignInButton,
   SignOutButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
 } from "@clerk/nextjs";
-import { SheetClose } from "@/components/ui/sheet";
 
 const LeftSidebar = () => {
   const pathname = usePathname();
@@ -72,7 +69,7 @@ const LeftSidebar = () => {
                     height={20}
                     className="invert-colors lg:hidden "
                   />
-                  <span className="primary-text-gradient text-md font-bold max-lg:hidden">
+                  <span className="primary-text-gradient text-base font-bold max-lg:hidden">
                     Log Out
                   </span>
                 </Button>
