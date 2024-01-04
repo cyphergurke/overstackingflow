@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import RenderTags from "../RenderTags";
 import Metric from "../Metric";
+import { getTimeStamp } from "@/lib/utils";
 
 interface QuestionCardProps {
   _id: string;
@@ -58,10 +59,10 @@ const QuestionCard = ({
       </div>
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
         <Metric
-          imgUrl="/assets/icons/avatar.svg"
+          imgUrl={author.picture}
           alt="user"
           value={author.name}
-          title={`- asked `} /* ${getTimeStamp(createdAt)} */
+          title={`- asked ${getTimeStamp(createdAt)}`}
           href={`/profile/${author._id}`}
           isAuthor
           textStyles="body-medium  text-dark400_light700"
