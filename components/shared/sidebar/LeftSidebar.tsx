@@ -19,9 +19,9 @@ const LeftSidebar = () => {
   const pathname = usePathname();
   return (
     <section
-      className="bg-light900_dark200 light-border sticky left-0 top-0 flex
-       h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36
-       shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px] custom-scrollbar"
+      className="bg-light900_dark200 light-border custom-scrollbar sticky left-0 top-0
+       flex h-screen flex-col justify-between overflow-y-auto border-r p-6
+       pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]"
     >
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
@@ -30,11 +30,12 @@ const LeftSidebar = () => {
             pathname === item.route;
           return (
             <Link
+              key={item.route}
               href={item.route}
               className={`${
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
-                  : "text-dark300_light900 hover:bg-slate-400 rounded-lg"
+                  : "text-dark300_light900 rounded-lg hover:bg-slate-400"
               } flex items-center justify-start gap-2 bg-transparent p-4`}
             >
               <Image
@@ -58,11 +59,11 @@ const LeftSidebar = () => {
       <div className="flex flex-col items-start self-stretch">
         <SignedIn>
           <SignOutButton>
-            <div className="flex flex-col gap-3 w-full  ">
+            <div className="flex w-full flex-col gap-3  ">
               <Link href="/sign-in" className="">
                 <Button
-                  className="small-medium  bg-slate-200 text-dark400_light900 hover:bg-slate-600
-                    min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none  "
+                  className="small-medium  text-dark400_light900 min-h-[41px] w-full
+                    rounded-lg bg-slate-200 px-4 py-3 shadow-none hover:bg-slate-600  "
                 >
                   <Image
                     src="/assets/icons/account.svg"
@@ -71,7 +72,7 @@ const LeftSidebar = () => {
                     height={20}
                     className="invert-colors lg:hidden "
                   />
-                  <span className="primary-text-gradient font-bold text-md max-lg:hidden">
+                  <span className="primary-text-gradient text-md font-bold max-lg:hidden">
                     Log Out
                   </span>
                 </Button>
@@ -80,7 +81,7 @@ const LeftSidebar = () => {
           </SignOutButton>
         </SignedIn>
         <SignedOut>
-          <div className="flex flex-col gap-3 w-full">
+          <div className="flex w-full flex-col gap-3">
             <Link href="/sign-in">
               <Button
                 className="small-medium btn-secondary text-dark400_light900
@@ -93,7 +94,7 @@ const LeftSidebar = () => {
                   height={20}
                   className="invert-colors lg:hidden"
                 />
-                <span className="primary-text-gradient font-bold max-lg:hidden hover:bg-slate-400">
+                <span className="primary-text-gradient font-bold hover:bg-slate-400 max-lg:hidden">
                   Log In
                 </span>
               </Button>
@@ -101,7 +102,7 @@ const LeftSidebar = () => {
             <Link href="/sign-up">
               <Button
                 className="small-medium light-border-2 btn-tertiary min-h-[41px]
-                    w-full rounded-lg px-4 py-3 shadow-none dark:text-white hover:bg-slate-400"
+                    w-full rounded-lg px-4 py-3 shadow-none hover:bg-slate-400 dark:text-white"
               >
                 <Image
                   src="/assets/icons/account.svg"

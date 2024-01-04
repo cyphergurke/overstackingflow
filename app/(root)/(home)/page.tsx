@@ -5,32 +5,14 @@ import QuestionCard from "@/components/shared/cards/QuestionCard";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 import React from "react";
 
-const questions = [{
-  _id: "123abc",
-  title: "How to Master React in 7 Days",
-  tags: [
-    { _id: "tag1", name: "React" },
-    { _id: "tag2", name: "Web Development" },
-  ],
-  author: {
-    _id: "author123",
-    name: "CodeNinja42",
-    picture: "https://placekitten.com/100/100", // Just for fun, a kitten picture!
-  },
-  upvotes: 1231231,
-  views: 1372,
-  answers: [
-    { user: "user1", text: "Just practice, practice, practice!" },
-    { user: "user2", text: "Read the docs like your favorite novel." },
-  ],
-  createdAt: new Date("2023-11-08T12:34:56Z"),
-}];
-
-
-const Home = () => {
+export default async function Home() {
+  const result = await getQuestions();
+  const serializedData = JSON.stringify(result.questions);
+  const questions = JSON.parse(serializedData);
 
   return (
     <>
@@ -58,11 +40,12 @@ const Home = () => {
           contianerClasses="hidden max-md:flex"
         />
       </div>
-        <HomeFilters />
-        <div className="mt-10 flex w-full flex-col gap-6">
-          {questions.length > 0
-          ? questions.map((question) => (
-            <QuestionCard
+      <HomeFilters />
+      <div className="mt-10 flex w-full flex-col gap-6">
+        {questions.length > 0
+          ? questions.map((question: any) => (
+            <>
+              <QuestionCard
               key={question._id}
               _id={question._id}
               title={question.title}
@@ -73,16 +56,16 @@ const Home = () => {
               answers={question.answers}
               createdAt={question.createdAt}
             />
-            )) : (
+              {question._id}
+            </>
+          )) : (
             <NoResult
-                title="There`s no question to show"
-                description="Some description"
-                link="/"
-                linkTitle="Ask a Question"
-          />)}
-        </div>
+              title="There`s no question to show"
+              description="Some description"
+              link="/"
+              linkTitle="Ask a Question"
+            />)}
+      </div>
     </>
   );
 };
-
-export default Home;
