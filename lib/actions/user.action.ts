@@ -3,9 +3,22 @@
 
 import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose"
-import { CreateUserParams, DeleteUserParams, UpdateUserParams } from "./shared.types";
+import { CreateUserParams, DeleteUserParams, GetAllUsersParams, UpdateUserParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
+
+export async function getAllUsers(params: GetAllUsersParams) {
+    try {
+        connectToDatabase()
+       // const {page = 1, pageSize = 20, filter, searchQuery } = params;
+        const users = await User.find({ })
+            .sort({ createdAt: -1})
+        return {users};
+    } catch (err: any) {
+        console.log(err.message)
+        throw err
+    }
+}
 
 export async function getUserById(params: any) {
     try {
@@ -18,6 +31,7 @@ export async function getUserById(params: any) {
         throw err
     }
 }
+
 
 export async function createUser(userData: CreateUserParams) {
     try {
