@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     password: {type: String},
     bio: {type: String},
     picture: {type: String},
-    location: {type: String, required: true},
+    location: {type: String},
     portfolioWebsite: {type: String},
     reputation: {type: Number, default: 0},
     saved: [{type: Schema.Types.ObjectId, ref: 'Question'}],

@@ -14,7 +14,7 @@ export const connectToDatabase = async () => {
             dbName: 'overstackingflow',
         })
         isConnected = true;
-        console.log('connetion successful');
+        console.log('connection successful');
     } catch (err: any) {
         console.log(err.message);
     }
