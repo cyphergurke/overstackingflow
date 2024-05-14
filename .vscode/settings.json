@@ -1,0 +1,15 @@
+{
+    "workbench.settings.useSplitJSON": true,
+    {
+        "editor.tokenColorCustomizations": {
+            "textMateRules": [
+                {
+                    "scope": "selection",
+                    "settings": {
+                        "background": "#fffff"
+                    }
+                }
+            ]
+        },
+    },
+}

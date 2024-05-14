@@ -17,7 +17,7 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@tailwindcss/typography": "^0.5.10",
-    "@tinymce/tinymce-react": "^4.3.2",
+    "@tinymce/tinymce-react": "^5.0.1",
     "@types/node": "20.7.0",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
@@ -29,20 +29,26 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
+    "html-react-parser": "^5.0.11",
     "lucide-react": "^0.284.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
-    "next": "^14.0.4",
-    "postcss": "8.4.30",
+    "next": "^14.2.3",
+    "postcss": "^8.4.38",
     "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "prismjs": "^1.29.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.49.2",
-    "svix": "^1.15.0",
+    "svix": "^1.24.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.2.2",
-    "zod": "^3.22.4"
+    "tinymce": "^7.1.0",
+    "typescript": "^5.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/prismjs": "^1.26.3"
   }
 }

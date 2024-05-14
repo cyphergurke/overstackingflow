@@ -23,6 +23,7 @@ import { Badge } from '../ui/badge';
 import Image from 'next/image';
 import { createQuestion } from '@/lib/actions/question.action';
 import { usePathname, useRouter } from 'next/navigation';
+import { getUserById } from '@/lib/actions/user.action';
 
 const type: any = 'create';
 
@@ -49,14 +50,16 @@ const Question = ({mongoUserId}: Props) => {
     async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
         setIsSubmitting(true);
         try {
+            const author = await getUserById(mongoUserId);
+            console.log(author)
             await createQuestion({
                 title: values.title,
                 content: values.explanation,
                 tags: values.tags,
-                author: JSON.parse(mongoUserId),
+                author: author,
                 path: pathname
             })
-            
+            console.log(author)
             router.push('/')
         } catch {
 
